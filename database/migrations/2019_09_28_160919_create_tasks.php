@@ -18,6 +18,7 @@ class CreateTasks extends Migration
             $table->string('title');
             $table->string('content');
             $table->string('created');
+            $table->string('image');
         });
     }
 

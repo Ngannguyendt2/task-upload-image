@@ -55,6 +55,7 @@
         <th scope="col">Title</th>
         <th scope="col">Content</th>
         <th scope="col">Created</th>
+        <th scope="col">Image</th>
     </tr>
 
     </thead>
@@ -65,6 +66,7 @@
             <th>{{ $task->title }}</th>
             <th>{{ $task->content }}</th>
             <th>{{ $task->created }}</th>
+            <th><img src="{{ asset('storage/images/' . $task->image) }}" alt="" style="width: 150px"></th>
         </tr>
     @endforeach
     </tbody>

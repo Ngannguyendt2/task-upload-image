@@ -20,6 +20,16 @@ class TaskController extends Controller
         $task->title=$request->title;
         $task->content=$request->contented;
         $task->created=$request->created;
+        $file=$request->inputFile;
+        if(!$request->hasFile('inputFile')){
+            $task->image=$file;
+        }else{
+            $fileName=$request->inputFileName;
+            $fileExtension=$file->getClientOriginalExtension();
+            $newFileName = "$fileName.$fileExtension";
+            $task->image = $newFileName;
+            $request->file('inputFile')->storeAs('public/images', $newFileName);
+        }
         $task->save();
         return redirect()->route("tasks.index");
     }
